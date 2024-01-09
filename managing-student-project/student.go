@@ -5,3 +5,7 @@ type Student struct {
 	group      string
 	speciality string
 }
+
+func InitStudent(name FullName, group string, spec string) Student {
+	return Student{fullName: name, group: group, speciality: spec}
+}

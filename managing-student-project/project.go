@@ -20,3 +20,7 @@ type Project struct {
 func (p *Project) GiveTask(task Task) {
 	p.tasks = append(p.tasks, task)
 }
+
+func InitProject(theme string, student Student, status ProjectStatus) Project {
+	return Project{theme: theme, student: student, tasks: []Task{}, status: status}
+}

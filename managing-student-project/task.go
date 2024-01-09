@@ -26,5 +26,9 @@ type Task struct {
 	deadline     time.Time
 	description  string
 	status       TaskStatus
-	projectSrage ProjectStage
+	projectStage ProjectStage
+}
+
+func InitTask(deadline time.Time, desc string, status TaskStatus, pStage ProjectStage) Task {
+	return Task{deadline: deadline, description: desc, status: status, projectStage: pStage}
 }

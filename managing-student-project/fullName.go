@@ -5,3 +5,7 @@ type FullName struct {
 	surname    string
 	middleName string
 }
+
+func InitFullName(name string, surname string, middlename string) FullName {
+	return FullName{name: name, surname: surname, middleName: middlename}
+}

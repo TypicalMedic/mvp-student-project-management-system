@@ -16,3 +16,7 @@ func (p *Professor) SuperviseProject(project Project) {
 func (p *Professor) ArrangeMeeting(meeting Meeting) {
 	p.meetings = append(p.meetings, meeting)
 }
+
+func InitProfessor(name FullName, position string) Professor {
+	return Professor{fullName: name, position: position, meetings: []Meeting{}, projects: []Project{}}
+}

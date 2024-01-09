@@ -19,6 +19,10 @@ type Meeting struct {
 	status   MeetingStatus
 }
 
+func InitMeeting(student Student, time time.Time, isOnline bool, status MeetingStatus) Meeting {
+	return Meeting{student: student, time: time, isOnline: isOnline, status: status}
+}
+
 // add lower interface
 func (m *Meeting) SetStatusToPlanned() {
 	m.status = MeetingStatus(MeetingPlanned)
