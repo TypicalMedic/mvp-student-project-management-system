@@ -2,6 +2,8 @@ package managingstudentproject
 
 import (
 	"time"
+
+	"github.com/google/uuid"
 )
 
 type MeetingStatus int
@@ -13,14 +15,16 @@ const (
 )
 
 type Meeting struct {
-	student  Student
-	time     time.Time
-	isOnline bool
-	status   MeetingStatus
+	id          uuid.UUID
+	organizer   Professor
+	participant Student
+	time        time.Time
+	isOnline    bool
+	status      MeetingStatus
 }
 
-func InitMeeting(student Student, time time.Time, isOnline bool, status MeetingStatus) Meeting {
-	return Meeting{student: student, time: time, isOnline: isOnline, status: status}
+func InitMeeting(participant Student, time time.Time, isOnline bool, status MeetingStatus, org Professor) Meeting {
+	return Meeting{id: uuid.New(), participant: participant, time: time, isOnline: isOnline, status: status, organizer: org}
 }
 
 // add lower interface
