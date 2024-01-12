@@ -1,22 +1,47 @@
 package managingstudentproject
 
+import "github.com/google/uuid"
+
 type Professor struct {
+	id       uuid.UUID
 	fullName FullName
 	position string
 	meetings []Meeting
-	projects []Project
+	calendar Calendar
 }
 
-// add lower interface
-func (p *Professor) SuperviseProject(project Project) {
-	p.projects = append(p.projects, project)
+func InitProfessor(name FullName, position string, meetings []Meeting, cal Calendar) Professor {
+	return Professor{id: uuid.New(), fullName: name, position: position, meetings: meetings, calendar: cal}
 }
 
-// add lower interface
-func (p *Professor) ArrangeMeeting(meeting Meeting) {
-	p.meetings = append(p.meetings, meeting)
+func (p *Professor) GetMeetings() []Meeting {
+	return p.meetings
 }
 
-func InitProfessor(name FullName, position string) Professor {
-	return Professor{fullName: name, position: position, meetings: []Meeting{}, projects: []Project{}}
+func (p *Professor) GetId() uuid.UUID {
+	return p.id
 }
+
+// type Professor struct {
+// 	id       uuid.UUID
+// 	fullName FullName
+// 	position string
+// 	meetings []Meeting
+// 	projects []Project
+// }
+
+// func InitProfessor(name FullName, position string, meetings []Meeting, projects []Project) Professor {
+// 	return Professor{id: uuid.New(), fullName: name, position: position, meetings: meetings, projects: projects}
+// }
+
+// func (p *Professor) GetMeetings() []Meeting {
+// 	return p.meetings
+// }
+
+// func (p *Professor) GetProjects() []Project {
+// 	return p.projects
+// }
+
+// func (p *Professor) GetId() uuid.UUID {
+// 	return p.id
+// }
