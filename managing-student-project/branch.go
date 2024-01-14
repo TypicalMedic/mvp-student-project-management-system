@@ -5,6 +5,22 @@ type Branch struct {
 	repository Repository
 }
 
+func (b *Branch) GetName() string {
+	return b.name
+}
+
+func (b *Branch) GetRepository() Repository {
+	return b.repository
+}
+
+func (b *Branch) SetName(name string) {
+	b.name = name
+}
+
+func (b *Branch) SetRepository(repository Repository) {
+	b.repository = repository
+}
+
 func InitBranch(name string, repo Repository) Branch {
 	return Branch{name: name, repository: repo}
 }

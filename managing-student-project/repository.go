@@ -5,6 +5,22 @@ type Repository struct {
 	owner Account
 }
 
+func (r *Repository) GetName() string {
+	return r.name
+}
+
+func (r *Repository) GetOwner() Account {
+	return r.owner
+}
+
+func (r *Repository) SetName(name string) {
+	r.name = name
+}
+
+func (r *Repository) SetOwner(owner Account) {
+	r.owner = owner
+}
+
 func InitRepo(name string, branches []Branch, owner Account) Repository {
 	return Repository{name: name, owner: owner}
 }
