@@ -4,8 +4,6 @@ import (
 	entities "mvp-student-project-management-system/managing-student-project"
 	interfaces "mvp-student-project-management-system/use-case-layer/interfaces"
 	"time"
-
-	"github.com/google/uuid"
 )
 
 type ProjectInteractor struct {
@@ -44,7 +42,7 @@ func (p *ProjectInteractor) DeleteProject(project entities.Project) {
 	p.ProjectDataStorage.DeleteProject(project)
 }
 
-func (p *ProjectInteractor) SelectProjectFromList(list []entities.Project, projectId uuid.UUID) entities.Project {
+func (p *ProjectInteractor) SelectProjectFromList(list []entities.Project, projectId int) entities.Project {
 	for _, project := range list {
 		if project.GetId() == projectId {
 			return project

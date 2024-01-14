@@ -13,12 +13,12 @@ type IProjectDataStorage interface {
 type IMeetingDataStorage interface {
 	SaveMeeting(entities.Meeting)
 	DeleteMeeting(entities.Meeting)
-	UpdateMeeting(entities.Meeting)
+	//UpdateMeeting(entities.Meeting)
 }
 
 type ITaskDataStorage interface {
 	SaveTask(entities.Task)
 	DeleteTask(entities.Task)
-	UpdateTask(entities.Task)
+	//UpdateTask(entities.Task)
 	GetProjectTasks(entities.Project) []entities.Task
 }

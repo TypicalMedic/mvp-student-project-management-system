@@ -16,11 +16,11 @@ func (m *MeetingtInteractor) ArrangeMeeting(meeting entities.Meeting) {
 	m.Calendar.AddMeeting(meeting)
 }
 
-func (m *MeetingtInteractor) CancelMeeting(meeting entities.Meeting) {
-	meeting.SetStatusToCancelled()
-	m.MeetingDataStorage.UpdateMeeting(meeting)
-	m.Calendar.RemoveMeeting(meeting)
-}
+// func (m *MeetingtInteractor) CancelMeeting(meeting entities.Meeting) {
+// 	meeting.SetStatusToCancelled()
+// 	m.MeetingDataStorage.UpdateMeeting(meeting)
+// 	m.Calendar.RemoveMeeting(meeting)
+// }
 
 func (m *MeetingtInteractor) ViewProfSchedule(professor entities.Professor) {
 	schedule := m.Calendar.GetProfessorSchedule(professor)
