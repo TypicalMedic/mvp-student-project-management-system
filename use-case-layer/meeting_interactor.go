@@ -2,11 +2,12 @@ package usecaselayer
 
 import (
 	entities "mvp-student-project-management-system/managing-student-project"
-	interfaces "mvp-student-project-management-system/use-case-layer/interfaces"
+	"mvp-student-project-management-system/use-case-layer/interfaces"
+	irepositories "mvp-student-project-management-system/use-case-layer/interfaces/irepositories"
 )
 
 type MeetingtInteractor struct {
-	MeetingDataStorage interfaces.IMeetingDataStorage
+	MeetingDataStorage irepositories.IMeetingDataStorage
 	Presenter          interfaces.IPresenter
 	Calendar           interfaces.ICalendar
 }
