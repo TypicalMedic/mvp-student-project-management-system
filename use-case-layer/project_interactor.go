@@ -5,11 +5,13 @@ import (
 	interfaces "mvp-student-project-management-system/use-case-layer/interfaces"
 	"time"
 
+	irepositories "mvp-student-project-management-system/use-case-layer/interfaces/irepositories"
+
 	"github.com/google/uuid"
 )
 
 type ProjectInteractor struct {
-	ProjectDataStorage interfaces.IProjectDataStorage
+	ProjectDataStorage irepositories.IProjectDataStorage
 	Presenter          interfaces.IPresenter
 	RepoManager        interfaces.IRepoManager
 	Drive              interfaces.ICloudDrive
