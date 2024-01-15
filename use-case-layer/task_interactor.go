@@ -3,10 +3,11 @@ package usecaselayer
 import (
 	entities "mvp-student-project-management-system/managing-student-project"
 	interfaces "mvp-student-project-management-system/use-case-layer/interfaces"
+	irepositories "mvp-student-project-management-system/use-case-layer/interfaces/irepositories"
 )
 
 type TaskInteractor struct {
-	TaskDataStorage interfaces.ITaskDataStorage
+	TaskDataStorage irepositories.ITaskDataStorage
 	Presenter       interfaces.IPresenter
 	Drive           interfaces.ICloudDrive
 }
