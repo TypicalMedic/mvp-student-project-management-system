@@ -6,12 +6,10 @@ import (
 	"time"
 
 	irepositories "mvp-student-project-management-system/use-case-layer/interfaces/irepositories"
-
-	"github.com/google/uuid"
 )
 
 type ProjectInteractor struct {
-	ProjectDataStorage irepositories.IProjectDataStorage
+	ProjectDataStorage irepositories.IProjectRepository
 	Presenter          interfaces.IPresenter
 	RepoManager        interfaces.IRepoManager
 	Drive              interfaces.ICloudDrive
@@ -42,13 +40,13 @@ func (p *ProjectInteractor) CreateProject(project entities.Project) {
 }
 
 func (p *ProjectInteractor) DeleteProject(project entities.Project) {
-	p.Drive.DeleteFolder(project.GetDriveFolder())
+	p.Drive.DeleteFolder(project.DriveFolder())
 	p.ProjectDataStorage.DeleteProject(project)
 }
 
-func (p *ProjectInteractor) SelectProjectFromList(list []entities.Project, projectId uuid.UUID) entities.Project {
+func (p *ProjectInteractor) SelectProjectFromList(list []entities.Project, projectId uint) entities.Project {
 	for _, project := range list {
-		if project.GetId() == projectId {
+		if project.Id() == projectId {
 			return project
 		}
 	}
