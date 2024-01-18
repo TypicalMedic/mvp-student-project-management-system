@@ -4,7 +4,7 @@ import (
 	entities "mvp-student-project-management-system/managing-student-project"
 )
 
-type ITaskDataStorage interface {
+type ITaskRepository interface {
 	SaveTask(entities.Task)
 	DeleteTask(entities.Task)
 	UpdateTask(entities.Task)

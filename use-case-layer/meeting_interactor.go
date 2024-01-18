@@ -7,7 +7,7 @@ import (
 )
 
 type MeetingtInteractor struct {
-	MeetingDataStorage irepositories.IMeetingDataStorage
+	MeetingDataStorage irepositories.IMeetingRepository
 	Presenter          interfaces.IPresenter
 	Calendar           interfaces.ICalendar
 }

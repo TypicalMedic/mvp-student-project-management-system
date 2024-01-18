@@ -7,7 +7,7 @@ import (
 )
 
 type TaskInteractor struct {
-	TaskDataStorage irepositories.ITaskDataStorage
+	TaskDataStorage irepositories.ITaskRepository
 	Presenter       interfaces.IPresenter
 	Drive           interfaces.ICloudDrive
 }
@@ -25,6 +25,6 @@ func (t *TaskInteractor) GiveProjectTask(task entities.Task, projectFolder entit
 }
 
 func (t *TaskInteractor) DeleteTask(task entities.Task) {
-	t.Drive.DeleteFolder(task.GetDriveFolder())
+	t.Drive.DeleteFolder(task.TaskFolder())
 	t.TaskDataStorage.DeleteTask(task)
 }
