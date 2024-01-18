@@ -1,18 +1,18 @@
 package managingstudentproject
 
 type Repository struct {
-	id      uint
-	name    string
-	owner   Account
-	commits []Commit
+	id       uint
+	name     string
+	owner    Account
+	branches []Branch
 }
 
-func (r *Repository) Commits() []Commit {
-	return r.commits
+func (r *Repository) Branches() []Branch {
+	return r.branches
 }
 
-func (r *Repository) SetCommits(commits []Commit) {
-	r.commits = commits
+func (r *Repository) SetBranches(branches []Branch) {
+	r.branches = branches
 }
 
 func (r *Repository) Id() uint {
@@ -40,7 +40,7 @@ func (r *Repository) SetOwner(owner Account) {
 }
 
 func InitRepo(id uint, name string, branches []Branch, owner Account) Repository {
-	return Repository{id: id, name: name, owner: owner}
+	return Repository{id: id, name: name, owner: owner, branches: branches}
 }
 
 // type Repository struct {
