@@ -1,29 +1,77 @@
 package managingstudentproject
 
-import "github.com/google/uuid"
-
 type Professor struct {
-	id       uuid.UUID
-	fullName FullName
-	position string
-	meetings []Meeting
-	calendar Calendar
+	id             uint
+	fullName       FullName
+	position       string
+	meetings       []Meeting
+	projects       []Project
+	calendar       Calendar
+	repoMngAccount Account
 }
 
-func InitProfessor(name FullName, position string, meetings []Meeting, cal Calendar) Professor {
-	return Professor{id: uuid.New(), fullName: name, position: position, meetings: meetings, calendar: cal}
+func (p *Professor) Projects() []Project {
+	return p.projects
 }
 
-func (p *Professor) GetMeetings() []Meeting {
+func (p *Professor) SetProjects(projects []Project) {
+	p.projects = projects
+}
+
+func (p *Professor) FullName() FullName {
+	return p.fullName
+}
+
+func (p *Professor) Position() string {
+	return p.position
+}
+
+func (p *Professor) Meetings() []Meeting {
 	return p.meetings
 }
 
-func (p *Professor) GetId() uuid.UUID {
+func (p *Professor) Calendar() Calendar {
+	return p.calendar
+}
+
+func (p *Professor) RepoMngAccount() Account {
+	return p.repoMngAccount
+}
+
+func (p *Professor) SetFullName(fullName FullName) {
+	p.fullName = fullName
+}
+
+func (p *Professor) SetPosition(position string) {
+	p.position = position
+}
+
+func (p *Professor) SetMeetings(meetings []Meeting) {
+	p.meetings = meetings
+}
+
+func (p *Professor) SetCalendar(calendar Calendar) {
+	p.calendar = calendar
+}
+
+func (p *Professor) SetRepoMngAccount(repoMngAccount Account) {
+	p.repoMngAccount = repoMngAccount
+}
+
+func InitProfessor(id uint, name FullName, position string, meetings []Meeting, projects []Project, cal Calendar, repoAcc Account) Professor {
+	return Professor{id: id, fullName: name, position: position, meetings: meetings, projects: projects, calendar: cal, repoMngAccount: repoAcc}
+}
+
+func (p *Professor) Id() uint {
 	return p.id
 }
 
+func (p *Professor) SetId(id uint) {
+	p.id = id
+}
+
 // type Professor struct {
-// 	id       uuid.UUID
+// 	id       int
 // 	fullName FullName
 // 	position string
 // 	meetings []Meeting
@@ -31,17 +79,17 @@ func (p *Professor) GetId() uuid.UUID {
 // }
 
 // func InitProfessor(name FullName, position string, meetings []Meeting, projects []Project) Professor {
-// 	return Professor{id: uuid.New(), fullName: name, position: position, meetings: meetings, projects: projects}
+// 	return Professor{fullName: name, position: position, meetings: meetings, projects: projects}
 // }
 
-// func (p *Professor) GetMeetings() []Meeting {
+// func (p *Professor) Meetings() []Meeting {
 // 	return p.meetings
 // }
 
-// func (p *Professor) GetProjects() []Project {
+// func (p *Professor) Projects() []Project {
 // 	return p.projects
 // }
 
-// func (p *Professor) GetId() uuid.UUID {
+// func (p *Professor) Id() int {
 // 	return p.id
 // }
