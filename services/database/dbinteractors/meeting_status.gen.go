@@ -15,7 +15,7 @@ import (
 	"gorm.io/gen/field"
 
 	"gorm.io/plugin/dbresolver"
-	"mvp-student-project-management-system/services/orm/models"
+	"mvp-student-project-management-system/services/database/models"
 )
 
 func newMeetingStatus(db *gorm.DB, opts ...gen.DOOption) meetingStatus {

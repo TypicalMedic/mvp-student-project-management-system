@@ -17,6 +17,7 @@ type Task struct {
 	Description        string    `gorm:"column:description;not null" json:"description"`
 	Deadline           time.Time `gorm:"column:deadline;not null" json:"deadline"`
 	StatusID           int32     `gorm:"column:status_id;not null" json:"status_id"`
+	ProjectID   	   int32     `gorm:"column:project_id;not null" json:"project_id"`
 	ProjectStageID     int32     `gorm:"column:project_stage_id;not null" json:"project_stage_id"`
 	CloudDriveFolderID string    `gorm:"column:cloud_drive_folder_id;not null" json:"cloud_drive_folder_id"`
 }

@@ -15,7 +15,7 @@ import (
 	"gorm.io/gen/field"
 
 	"gorm.io/plugin/dbresolver"
-	"mvp-student-project-management-system/services/orm/models"
+	"mvp-student-project-management-system/services/database/models"
 )
 
 func newTask(db *gorm.DB, opts ...gen.DOOption) task {
@@ -32,6 +32,7 @@ func newTask(db *gorm.DB, opts ...gen.DOOption) task {
 	_task.Deadline = field.NewTime(tableName, "deadline")
 	_task.StatusID = field.NewInt32(tableName, "status_id")
 	_task.ProjectStageID = field.NewInt32(tableName, "project_stage_id")
+	_task.ProjectID = field.NewInt32(tableName, "project_id")
 	_task.CloudDriveFolderID = field.NewString(tableName, "cloud_drive_folder_id")
 
 	_task.fillFieldMap()
@@ -48,6 +49,7 @@ type task struct {
 	Description        field.String
 	Deadline           field.Time
 	StatusID           field.Int32
+	ProjectID          field.Int32
 	ProjectStageID     field.Int32
 	CloudDriveFolderID field.String
 
@@ -72,6 +74,7 @@ func (t *task) updateTableName(table string) *task {
 	t.Deadline = field.NewTime(table, "deadline")
 	t.StatusID = field.NewInt32(table, "status_id")
 	t.ProjectStageID = field.NewInt32(table, "project_stage_id")
+	t.ProjectID = field.NewInt32(table, "project_id")
 	t.CloudDriveFolderID = field.NewString(table, "cloud_drive_folder_id")
 
 	t.fillFieldMap()
@@ -96,6 +99,7 @@ func (t *task) fillFieldMap() {
 	t.fieldMap["deadline"] = t.Deadline
 	t.fieldMap["status_id"] = t.StatusID
 	t.fieldMap["project_stage_id"] = t.ProjectStageID
+	t.fieldMap["project_id"] = t.ProjectID
 	t.fieldMap["cloud_drive_folder_id"] = t.CloudDriveFolderID
 }
 
