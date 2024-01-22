@@ -11,6 +11,10 @@ type Github struct {
 	api githubAPI
 }
 
+func InitGithub(api githubAPI) Github {
+	return Github{api: api}
+}
+
 func (g *Github) GetRepoBranches(repo entities.Repository) []entities.Branch {
 	owner := repo.Owner()
 	ghbranches, err := g.api.GetRepoBranches(owner.AccountName(), repo.Name())
