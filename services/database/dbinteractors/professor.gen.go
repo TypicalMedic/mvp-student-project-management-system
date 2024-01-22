@@ -34,6 +34,7 @@ func newProfessor(db *gorm.DB, opts ...gen.DOOption) professor {
 	_professor.CalendarAccountID = field.NewInt32(tableName, "calendar_account_id")
 	_professor.CalendarID = field.NewString(tableName, "calendar_id")
 	_professor.RepoAccountID = field.NewInt32(tableName, "repo_account_id")
+	_professor.CloudDriveFolderID = field.NewString(tableName, "cloud_drive_folder_id")
 
 	_professor.fillFieldMap()
 
@@ -52,6 +53,7 @@ type professor struct {
 	CalendarAccountID field.Int32
 	CalendarID        field.String
 	RepoAccountID     field.Int32
+	CloudDriveFolderID        field.String
 
 	fieldMap map[string]field.Expr
 }
@@ -76,6 +78,7 @@ func (p *professor) updateTableName(table string) *professor {
 	p.CalendarAccountID = field.NewInt32(table, "calendar_account_id")
 	p.CalendarID = field.NewString(table, "calendar_id")
 	p.RepoAccountID = field.NewInt32(table, "repo_account_id")
+	p.CloudDriveFolderID = field.NewString(table, "cloud_drive_folder_id")
 
 	p.fillFieldMap()
 
@@ -101,6 +104,7 @@ func (p *professor) fillFieldMap() {
 	p.fieldMap["calendar_account_id"] = p.CalendarAccountID
 	p.fieldMap["calendar_id"] = p.CalendarID
 	p.fieldMap["repo_account_id"] = p.RepoAccountID
+	p.fieldMap["cloud_drive_folder_id"] = p.CloudDriveFolderID
 }
 
 func (p professor) clone(db *gorm.DB) professor {

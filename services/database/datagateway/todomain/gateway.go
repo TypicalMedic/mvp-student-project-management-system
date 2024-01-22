@@ -23,7 +23,7 @@ func Meeting(meeting model.Meeting, setters ...func(*entities.Meeting)) entities
 		meeting.Time,
 		meeting.IsOnline,
 		entities.MeetingStatus(meeting.StatusID),
-		entities.InitProfessor(uint(meeting.OrganizerID), entities.FullName{}, "", []entities.Meeting{}, []entities.Project{}, entities.Calendar{}, entities.Account{}),
+		entities.InitProfessor(uint(meeting.OrganizerID), entities.FullName{}, "", []entities.Meeting{}, []entities.Project{}, entities.Calendar{}, entities.Account{}, entities.Folder{}),
 		meeting.Description)
 	for _, setter := range setters {
 		setter(&m)
@@ -39,7 +39,9 @@ func Professor(professor model.Professor, setters ...func(*entities.Professor)) 
 		[]entities.Meeting{},
 		[]entities.Project{},
 		entities.InitCalendar(professor.CalendarID, entities.Account{}, ""),
-		entities.InitAccount(uint(professor.RepoAccountID), "", ""))
+		entities.InitAccount(uint(professor.RepoAccountID), "", ""),
+		entities.InitFolder(professor.CloudDriveFolderID, "", ""),
+	)
 	for _, setter := range setters {
 		setter(&p)
 	}
@@ -63,7 +65,7 @@ func Project(projcet model.Project, setters ...func(*entities.Project)) entities
 		int(projcet.Year),
 		entities.InitRepo(uint(projcet.RepoID), "", []entities.Branch{}, entities.Account{}),
 		[]entities.Task{},
-		entities.InitProfessor(uint(projcet.SupervisorID), entities.FullName{}, "", []entities.Meeting{}, []entities.Project{}, entities.Calendar{}, entities.Account{}))
+		entities.InitProfessor(uint(projcet.SupervisorID), entities.FullName{}, "", []entities.Meeting{}, []entities.Project{}, entities.Calendar{}, entities.Account{}, entities.Folder{}))
 	for _, setter := range setters {
 		setter(&p)
 	}
