@@ -8,6 +8,15 @@ type Professor struct {
 	projects       []Project
 	calendar       Calendar
 	repoMngAccount Account
+	driveFolder    Folder
+}
+
+func (p *Professor) DriveFolder() Folder {
+	return p.driveFolder
+}
+
+func (p *Professor) SetDriveFolder(driveFolder Folder) {
+	p.driveFolder = driveFolder
 }
 
 func (p *Professor) Projects() []Project {
@@ -58,8 +67,8 @@ func (p *Professor) SetRepoMngAccount(repoMngAccount Account) {
 	p.repoMngAccount = repoMngAccount
 }
 
-func InitProfessor(id uint, name FullName, position string, meetings []Meeting, projects []Project, cal Calendar, repoAcc Account) Professor {
-	return Professor{id: id, fullName: name, position: position, meetings: meetings, projects: projects, calendar: cal, repoMngAccount: repoAcc}
+func InitProfessor(id uint, name FullName, position string, meetings []Meeting, projects []Project, cal Calendar, repoAcc Account, f Folder) Professor {
+	return Professor{id: id, fullName: name, position: position, meetings: meetings, projects: projects, calendar: cal, repoMngAccount: repoAcc, driveFolder: f}
 }
 
 func (p *Professor) Id() uint {
