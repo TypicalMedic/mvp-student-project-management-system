@@ -1,5 +1,7 @@
 package managingstudentproject
 
+import "fmt"
+
 type FullName struct {
 	name       string
 	surname    string
@@ -32,4 +34,8 @@ func (f *FullName) SetMiddleName(middleName string) {
 
 func InitFullName(name string, surname string, middlename string) FullName {
 	return FullName{name: name, surname: surname, middleName: middlename}
+}
+
+func (f *FullName) ToString() string {
+	return fmt.Sprint(f.surname, " ", f.name, " ", f.middleName)
 }
