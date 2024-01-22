@@ -28,6 +28,7 @@ CREATE TABLE
         calendar_account_id INT,
         calendar_id VARCHAR(100),
         repo_account_id INT,
+        cloud_drive_folder_id VARCHAR(100) NOT NULL,
         PRIMARY KEY(id),
         FOREIGN KEY (calendar_account_id) REFERENCES calendar_account(id) ON DELETE CASCADE,
         FOREIGN KEY (repo_account_id) REFERENCES repository_account(id) ON DELETE CASCADE
@@ -67,7 +68,7 @@ CREATE TABLE
         student_id INT NOT NULL,
         status_id INT NOT NULL,
         repoId INT,
-        cloud_drive_folder_id VARCHAR(100) NOT NULL,
+        cloud_drive_folder_id VARCHAR(100),
         PRIMARY KEY(id),
         FOREIGN KEY (supervisor_id) REFERENCES professor(id) ON DELETE CASCADE,
         FOREIGN KEY (student_id) REFERENCES student(id) ON DELETE CASCADE,

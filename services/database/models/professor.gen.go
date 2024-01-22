@@ -16,6 +16,7 @@ type Professor struct {
 	CalendarAccountID int32  `gorm:"column:calendar_account_id" json:"calendar_account_id"`
 	CalendarID        string `gorm:"column:calendar_id" json:"calendar_id"`
 	RepoAccountID     int32  `gorm:"column:repo_account_id" json:"repo_account_id"`
+	CloudDriveFolderID     string  `gorm:"column:cloud_drive_folder_id" json:"cloud_drive_folder_id"`
 }
 
 // TableName Professor's table name

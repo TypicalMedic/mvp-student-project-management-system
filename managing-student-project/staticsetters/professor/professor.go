@@ -27,3 +27,9 @@ func SetRepoMngAccount(acc entities.Account) func(*entities.Professor) {
 		p.SetRepoMngAccount(acc)
 	}
 }
+
+func SetDriveFolder(folder entities.Folder) func(*entities.Professor) {
+	return func(p *entities.Professor) {
+		p.SetDriveFolder(folder)
+	}
+}
